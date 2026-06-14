@@ -26,14 +26,14 @@ body {
 .logo-track img {
   height: 80px;
   width: auto;
-  margin: 0 10px;
+  margin: 0 20px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 .logo-track img {
   height: 80px;
   width: auto;
-  margin: 0 120px;
+  margin: 0 20px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
