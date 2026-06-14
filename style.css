@@ -26,7 +26,7 @@ body {
 .logo-track img {
   height: 80px;
   width: auto;
-  margin: 0 60px;
+  margin: 0 30px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
