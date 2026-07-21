@@ -1,6 +1,6 @@
 /* ===========================
    AL FAARED TRAVEL
-   Premium Logo Slider v3
+   Premium Logo Slider v4
 =========================== */
 
 *{
@@ -21,7 +21,7 @@ overflow:hidden;
 }
 
 .container{
-width:98%;
+width:96%;
 max-width:1600px;
 margin:auto;
 }
@@ -35,7 +35,7 @@ margin-bottom:40px;
 font-size:38px;
 font-weight:700;
 color:#6C1B24;
-margin-bottom:14px;
+margin-bottom:15px;
 line-height:1.2;
 }
 
@@ -48,22 +48,21 @@ margin:auto;
 }
 
 /* ===========================
-   Slider
+   Logo Slider
 =========================== */
 
 .logo-slider{
 width:100%;
 overflow:hidden;
 position:relative;
-padding:6px 0;
 }
 
 .logo-track{
 display:flex;
 align-items:center;
-justify-content:flex-start;
-gap:4px;
+flex-wrap:nowrap;
 width:max-content;
+gap:2px;
 animation:scroll 80s linear infinite;
 will-change:transform;
 }
@@ -78,8 +77,13 @@ animation-play-state:paused;
 
 .logo-item{
 
-width:235px;
-height:150px;
+width:220px;
+height:145px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+flex:0 0 auto;
 
 background:#ffffff;
 
@@ -87,23 +91,15 @@ border:1px solid #e8e8e8;
 
 border-radius:14px;
 
+padding:8px;
+
 margin:0;
-
-padding:10px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-flex-shrink:0;
 
 overflow:hidden;
 
 box-shadow:0 3px 10px rgba(0,0,0,.06);
 
-transition:all .35s ease;
+transition:.35s;
 
 }
 
@@ -111,25 +107,23 @@ transition:all .35s ease;
 
 transform:translateY(-5px);
 
-border-color:#d7d7d7;
-
 box-shadow:0 10px 22px rgba(0,0,0,.10);
 
 }
 
 .logo-item img{
 
-display:block;
-
 width:100%;
 height:100%;
 
 object-fit:contain;
 
+display:block;
+
 }
 
 /* ===========================
-   Infinite Scroll
+   Animation
 =========================== */
 
 @keyframes scroll{
@@ -148,14 +142,10 @@ transform:translateX(-50%);
    Tablet
 =========================== */
 
-@media (max-width:991px){
+@media(max-width:991px){
 
 .logo-slider-section{
 padding:50px 0;
-}
-
-.section-heading{
-margin-bottom:32px;
 }
 
 .section-heading h2{
@@ -167,18 +157,18 @@ font-size:16px;
 line-height:26px;
 }
 
+.logo-track{
+gap:2px;
+animation-duration:70s;
+}
+
 .logo-item{
 
-width:195px;
-height:130px;
+width:185px;
+height:125px;
 
 padding:8px;
 
-}
-
-.logo-track{
-gap:3px;
-animation-duration:70s;
 }
 
 }
@@ -187,7 +177,7 @@ animation-duration:70s;
    Mobile
 =========================== */
 
-@media (max-width:767px){
+@media(max-width:767px){
 
 .logo-slider-section{
 padding:40px 0;
@@ -210,20 +200,20 @@ font-size:15px;
 line-height:24px;
 }
 
+.logo-track{
+gap:1px;
+animation-duration:60s;
+}
+
 .logo-item{
 
-width:155px;
+width:150px;
 height:100px;
 
-padding:8px;
+padding:6px;
 
 border-radius:12px;
 
-}
-
-.logo-track{
-gap:2px;
-animation-duration:60s;
 }
 
 }
