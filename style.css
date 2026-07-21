@@ -1,137 +1,238 @@
-/* ==========================
-   RESET
-========================== */
+/* ===========================
+   AL FAARED TRAVEL
+   Logo Slider
+=========================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#ffffff;
+font-family:Arial,Helvetica,sans-serif;
+background:#ffffff;
 }
 
-/* ==========================
-   LOGO SLIDER
-========================== */
+.logo-slider-section{
+
+padding:70px 0;
+
+background:#ffffff;
+
+overflow:hidden;
+
+}
+
+.container{
+
+width:92%;
+
+max-width:1500px;
+
+margin:auto;
+
+}
+
+.section-heading{
+
+text-align:center;
+
+margin-bottom:45px;
+
+}
+
+.section-heading h2{
+
+font-size:38px;
+
+font-weight:700;
+
+color:#6C1B24;
+
+margin-bottom:15px;
+
+}
+
+.section-heading p{
+
+font-size:18px;
+
+color:#666;
+
+line-height:30px;
+
+}
+
+/* Slider */
 
 .logo-slider{
-    width:100%;
-    overflow:hidden;
-    background:#ffffff;
-    padding:12px 0;
-    position:relative;
+
+width:100%;
+
+overflow:hidden;
+
+position:relative;
+
 }
 
 .logo-track{
-    display:flex;
-    align-items:center;
-    width:max-content;
-    animation:scroll 28s linear infinite;
+
+display:flex;
+
+align-items:center;
+
+width:max-content;
+
+animation:scroll 45s linear infinite;
+
 }
 
+.logo-slider:hover .logo-track{
+
+animation-play-state:paused;
+
+}
+
+/* Logo Card */
+
 .logo-item{
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0 22px;
+
+width:220px;
+
+height:140px;
+
+background:#fff;
+
+border-radius:14px;
+
+margin:0 18px;
+
+padding:20px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+box-shadow:
+
+0 5px 18px rgba(0,0,0,.08);
+
+transition:.35s;
+
+flex-shrink:0;
+
+}
+
+.logo-item:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.15);
+
 }
 
 .logo-item img{
 
-    display:block;
+max-width:100%;
 
-    height:105px;
-    width:auto;
+max-height:100%;
 
-    max-width:220px;
+object-fit:contain;
 
-    object-fit:contain;
-
-    transition:.35s ease;
-}
-
-.logo-item img:hover{
-
-    transform:scale(1.05);
+display:block;
 
 }
 
-/* ==========================
-   ANIMATION
-========================== */
+/* Infinite */
 
 @keyframes scroll{
 
-    from{
-        transform:translateX(0);
-    }
+0%{
 
-    to{
-        transform:translateX(-50%);
-    }
+transform:translateX(0);
 
 }
 
-/* ==========================
-   TABLET
-========================== */
+100%{
 
-@media (max-width:992px){
-
-.logo-slider{
-
-padding:10px 0;
-
-}
-
-.logo-item{
-
-padding:0 18px;
-
-}
-
-.logo-item img{
-
-height:82px;
-
-max-width:180px;
+transform:translateX(-50%);
 
 }
 
 }
 
-/* ==========================
-   MOBILE
-========================== */
+/* Tablet */
 
-@media (max-width:768px){
+@media(max-width:991px){
 
-.logo-slider{
+.section-heading h2{
 
-padding:8px 0;
+font-size:30px;
 
 }
 
 .logo-item{
 
-padding:0 25px;
+width:180px;
+
+height:120px;
+
+margin:0 14px;
 
 }
 
-.logo-item img{
+}
 
-height:72px;
+/* Mobile */
 
-max-width:220px;
+@media(max-width:767px){
+
+.logo-slider-section{
+
+padding:45px 0;
+
+}
+
+.section-heading{
+
+margin-bottom:30px;
+
+}
+
+.section-heading h2{
+
+font-size:24px;
+
+}
+
+.section-heading p{
+
+font-size:15px;
+
+line-height:24px;
+
+}
+
+.logo-item{
+
+width:150px;
+
+height:100px;
+
+margin:0 10px;
+
+padding:15px;
 
 }
 
 .logo-track{
 
-animation-duration:22s;
+animation-duration:30s;
 
 }
 
