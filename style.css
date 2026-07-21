@@ -1,6 +1,7 @@
 /* ===========================
    AL FAARED TRAVEL
-   Premium Logo Slider v4
+   Premium Logo Slider v5
+   (Spacing Optimized)
 =========================== */
 
 *{
@@ -21,7 +22,7 @@ overflow:hidden;
 }
 
 .container{
-width:96%;
+width:97%;
 max-width:1600px;
 margin:auto;
 }
@@ -48,7 +49,7 @@ margin:auto;
 }
 
 /* ===========================
-   Logo Slider
+   Slider
 =========================== */
 
 .logo-slider{
@@ -61,8 +62,8 @@ position:relative;
 display:flex;
 align-items:center;
 flex-wrap:nowrap;
+gap:0px;
 width:max-content;
-gap:2px;
 animation:scroll 80s linear infinite;
 will-change:transform;
 }
@@ -77,29 +78,38 @@ animation-play-state:paused;
 
 .logo-item{
 
-width:220px;
+/* ----- MAIN CHANGE ----- */
+
+width:185px;
 height:145px;
+
+/* ----------------------- */
+
+flex:0 0 auto;
 
 display:flex;
 align-items:center;
 justify-content:center;
-flex:0 0 auto;
 
 background:#ffffff;
 
 border:1px solid #e8e8e8;
-
 border-radius:14px;
 
-padding:8px;
+padding:4px;
+
+/* ZERO OUTSIDE GAP */
 
 margin:0;
 
 overflow:hidden;
 
-box-shadow:0 3px 10px rgba(0,0,0,.06);
+box-shadow:
+0 3px 10px rgba(0,0,0,.06);
 
-transition:.35s;
+transition:
+transform .35s ease,
+box-shadow .35s ease;
 
 }
 
@@ -107,18 +117,19 @@ transition:.35s;
 
 transform:translateY(-5px);
 
-box-shadow:0 10px 22px rgba(0,0,0,.10);
+box-shadow:
+0 10px 22px rgba(0,0,0,.10);
 
 }
 
 .logo-item img{
 
+display:block;
+
 width:100%;
 height:100%;
 
 object-fit:contain;
-
-display:block;
 
 }
 
@@ -158,16 +169,17 @@ line-height:26px;
 }
 
 .logo-track{
-gap:2px;
+gap:0;
 animation-duration:70s;
 }
 
 .logo-item{
 
-width:185px;
+width:165px;
 height:125px;
 
-padding:8px;
+padding:4px;
+margin:0;
 
 }
 
@@ -201,16 +213,18 @@ line-height:24px;
 }
 
 .logo-track{
-gap:1px;
+gap:0;
 animation-duration:60s;
 }
 
 .logo-item{
 
-width:150px;
-height:100px;
+width:135px;
+height:95px;
 
-padding:6px;
+padding:3px;
+
+margin:0;
 
 border-radius:12px;
 
