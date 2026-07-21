@@ -1,6 +1,6 @@
 /* ===========================
    AL FAARED TRAVEL
-   Logo Slider
+   Premium Logo Slider v2
 =========================== */
 
 *{
@@ -15,225 +15,181 @@ background:#ffffff;
 }
 
 .logo-slider-section{
-
-padding:70px 0;
-
+padding:65px 0;
 background:#ffffff;
-
 overflow:hidden;
-
 }
 
 .container{
-
-width:92%;
-
-max-width:1500px;
-
+width:94%;
+max-width:1600px;
 margin:auto;
-
 }
 
 .section-heading{
-
 text-align:center;
-
-margin-bottom:45px;
-
+margin-bottom:42px;
 }
 
 .section-heading h2{
-
 font-size:38px;
-
 font-weight:700;
-
 color:#6C1B24;
-
-margin-bottom:15px;
-
+margin-bottom:14px;
+line-height:1.2;
 }
 
 .section-heading p{
-
 font-size:18px;
-
 color:#666;
-
 line-height:30px;
-
+max-width:900px;
+margin:auto;
 }
 
-/* Slider */
+/* ===========================
+   Slider
+=========================== */
 
 .logo-slider{
-
 width:100%;
-
 overflow:hidden;
-
 position:relative;
-
+padding:8px 2px;
 }
 
 .logo-track{
-
 display:flex;
-
 align-items:center;
-
 width:max-content;
-
-animation:scroll 45s linear infinite;
-
+animation:scroll 75s linear infinite;
+will-change:transform;
 }
 
 .logo-slider:hover .logo-track{
-
 animation-play-state:paused;
-
 }
 
-/* Logo Card */
+/* ===========================
+   Logo Card
+=========================== */
 
 .logo-item{
-
-width:220px;
-
-height:140px;
-
-background:#fff;
-
-border-radius:14px;
-
-margin:0 18px;
-
-padding:20px;
-
+width:250px;
+height:160px;
+background:#ffffff;
+border:1px solid #ececec;
+border-radius:16px;
+margin:0 8px;
+padding:16px;
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
-box-shadow:
-
-0 5px 18px rgba(0,0,0,.08);
-
-transition:.35s;
-
 flex-shrink:0;
-
+overflow:hidden;
+box-shadow:0 4px 14px rgba(0,0,0,.06);
+transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 
 .logo-item:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-
-0 12px 35px rgba(0,0,0,.15);
-
+transform:translateY(-6px);
+border-color:#d9d9d9;
+box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 
 .logo-item img{
-
-max-width:100%;
-
-max-height:100%;
-
-object-fit:contain;
-
 display:block;
-
+width:100%;
+height:100%;
+object-fit:contain;
 }
 
-/* Infinite */
+/* ===========================
+   Infinite Scroll
+=========================== */
 
 @keyframes scroll{
-
 0%{
-
 transform:translateX(0);
-
 }
-
 100%{
-
 transform:translateX(-50%);
-
+}
 }
 
-}
+/* ===========================
+   Tablet
+=========================== */
 
-/* Tablet */
-
-@media(max-width:991px){
-
-.section-heading h2{
-
-font-size:30px;
-
-}
-
-.logo-item{
-
-width:180px;
-
-height:120px;
-
-margin:0 14px;
-
-}
-
-}
-
-/* Mobile */
-
-@media(max-width:767px){
+@media (max-width:991px){
 
 .logo-slider-section{
-
-padding:45px 0;
-
+padding:55px 0;
 }
 
 .section-heading{
-
-margin-bottom:30px;
-
+margin-bottom:34px;
 }
 
 .section-heading h2{
-
-font-size:24px;
-
+font-size:30px;
 }
 
 .section-heading p{
-
-font-size:15px;
-
-line-height:24px;
-
+font-size:16px;
+line-height:26px;
 }
 
 .logo-item{
-
-width:150px;
-
-height:100px;
-
-margin:0 10px;
-
-padding:15px;
-
+width:210px;
+height:140px;
+margin:0 7px;
+padding:14px;
 }
 
 .logo-track{
+animation-duration:65s;
+}
 
-animation-duration:30s;
+}
 
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:767px){
+
+.logo-slider-section{
+padding:42px 0;
+}
+
+.container{
+width:95%;
+}
+
+.section-heading{
+margin-bottom:26px;
+}
+
+.section-heading h2{
+font-size:24px;
+}
+
+.section-heading p{
+font-size:15px;
+line-height:24px;
+}
+
+.logo-item{
+width:165px;
+height:105px;
+margin:0 6px;
+padding:12px;
+border-radius:14px;
+}
+
+.logo-track{
+animation-duration:55s;
 }
 
 }
