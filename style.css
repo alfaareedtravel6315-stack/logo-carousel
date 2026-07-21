@@ -1,7 +1,7 @@
 /* ===========================
    AL FAARED TRAVEL
-   Premium Logo Slider v6.1
-   (Final Desktop Spacing Fine Tune)
+   Premium Logo Slider
+   Version 7
 =========================== */
 
 *{
@@ -53,23 +53,37 @@ margin:auto;
 =========================== */
 
 .logo-slider{
+
 width:100%;
+
 overflow:hidden;
+
 position:relative;
+
 }
 
 .logo-track{
+
 display:flex;
+
 align-items:center;
+
 flex-wrap:nowrap;
-gap:0;
-width:max-content;
+
+justify-content:flex-start;
+
+gap:8px;
+
 animation:scroll 80s linear infinite;
+
 will-change:transform;
+
 }
 
 .logo-slider:hover .logo-track{
+
 animation-play-state:paused;
+
 }
 
 /* ===========================
@@ -78,23 +92,27 @@ animation-play-state:paused;
 
 .logo-item{
 
+flex:0 0 160px;
+
 width:160px;
+
+min-width:160px;
+
 height:145px;
 
-flex:0 0 auto;
-
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 background:#ffffff;
 
 border:1px solid #e8e8e8;
+
 border-radius:14px;
 
 padding:3px;
-
-margin:0;
 
 overflow:hidden;
 
@@ -119,26 +137,25 @@ box-shadow:
 .logo-item img{
 
 width:100%;
+
 height:100%;
 
 display:block;
 
 object-fit:contain;
 
-}
-
-/* ===========================
+}/* ===========================
    Animation
 =========================== */
 
 @keyframes scroll{
 
 0%{
-transform:translateX(0);
+transform:translate3d(0,0,0);
 }
 
 100%{
-transform:translateX(-50%);
+transform:translate3d(-50%,0,0);
 }
 
 }
@@ -163,18 +180,24 @@ line-height:26px;
 }
 
 .logo-track{
-gap:0;
+
+gap:6px;
+
 animation-duration:70s;
+
 }
 
 .logo-item{
 
+flex:0 0 150px;
+
 width:150px;
+
+min-width:150px;
+
 height:120px;
 
 padding:3px;
-
-margin:0;
 
 }
 
@@ -208,21 +231,53 @@ line-height:24px;
 }
 
 .logo-track{
-gap:0;
+
+gap:5px;
+
 animation-duration:60s;
+
 }
 
 .logo-item{
 
+flex:0 0 130px;
+
 width:130px;
+
+min-width:130px;
+
 height:95px;
 
 padding:3px;
 
-margin:0;
-
 border-radius:12px;
 
 }
+
+}
+
+/* ===========================
+   Smooth Rendering
+=========================== */
+
+.logo-track,
+.logo-item,
+.logo-item img{
+
+-webkit-backface-visibility:hidden;
+
+backface-visibility:hidden;
+
+transform-style:preserve-3d;
+
+}
+
+/* ===========================
+   Performance
+=========================== */
+
+.logo-slider{
+
+contain:layout paint;
 
 }
