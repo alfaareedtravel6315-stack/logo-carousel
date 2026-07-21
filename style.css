@@ -1,59 +1,138 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-  background: #ffffff;
-  overflow: hidden;
+body{
+    background:#ffffff;
 }
 
-.logo-slider {
-  width: 120%;
-  overflow: hidden;
-  background: #ffffff;
-  padding: 20px 0;
+/* ==========================
+   LOGO SLIDER
+========================== */
+
+.logo-slider{
+    width:100%;
+    overflow:hidden;
+    background:#ffffff;
+    padding:12px 0;
+    position:relative;
 }
 
-.logo-track {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  animation: scroll 60s linear infinite;
+.logo-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    animation:scroll 28s linear infinite;
 }
 
-.logo-track img {
-  height: 130px;
-  width: auto;
-  margin: 0 35px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+.logo-item{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 22px;
+}
+
+.logo-item img{
+
+    display:block;
+
+    height:105px;
+    width:auto;
+
+    max-width:220px;
+
+    object-fit:contain;
+
+    transition:.35s ease;
+}
+
+.logo-item img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes scroll{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width:992px){
+
+.logo-slider{
+
+padding:10px 0;
+
+}
+
+.logo-item{
+
+padding:0 18px;
+
+}
+
+.logo-item img{
+
+height:82px;
+
+max-width:180px;
+
 }
 
 }
 
-.logo-track img:hover {
-  transform: scale(1.05);
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+.logo-slider{
+
+padding:8px 0;
+
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.logo-item{
+
+padding:0 25px;
+
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .logo-track img {
-    height: 55px;
-    margin: 0 20px;
-  }
+.logo-item img{
 
-  .logo-track {
-    animation-duration: 60s;
-  }
+height:72px;
+
+max-width:220px;
+
+}
+
+.logo-track{
+
+animation-duration:22s;
+
+}
+
 }
