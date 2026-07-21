@@ -1,12 +1,39 @@
+// ================================
+// AL FAARED TRAVEL
+// Premium Logo Slider
+// Version 4
+// ================================
 
-/* ==========================================
-   AL FAARED TRAVEL
-   Logo Slider Script
-   Version 1.0
-========================================== */
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".logo-track");
 
-    console.log("AL FAARED TRAVEL Logo Slider Loaded Successfully");
+    if (!track) return;
+
+    // Pause on hover
+    track.addEventListener("mouseenter", function () {
+        track.style.animationPlayState = "paused";
+    });
+
+    track.addEventListener("mouseleave", function () {
+        track.style.animationPlayState = "running";
+    });
+
+    // Pause when browser tab is inactive
+    document.addEventListener("visibilitychange", function () {
+
+        if (document.hidden) {
+            track.style.animationPlayState = "paused";
+        } else {
+            track.style.animationPlayState = "running";
+        }
+
+    });
+
+    console.log("==================================");
+    console.log("AL FAARED TRAVEL");
+    console.log("Premium Logo Slider Loaded");
+    console.log("Version 4");
+    console.log("==================================");
 
 });
