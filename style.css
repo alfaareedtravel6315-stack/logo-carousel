@@ -17,7 +17,7 @@ background:#ffffff;
 
 .logo-slider-section{
 padding:60px 0;
-background:#ffffff;
+background:transparent;
 overflow:hidden;
 }
 
@@ -106,7 +106,7 @@ align-items:center;
 
 justify-content:center;
 
-background:transparent;
+background:#ffffff;
 
 border:1px solid #e8e8e8;
 
