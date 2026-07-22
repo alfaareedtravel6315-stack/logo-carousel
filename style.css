@@ -1,283 +1,349 @@
-/* ===========================
+/* ===================================================
    AL FAARED TRAVEL
    Premium Logo Slider
-   Version 7
+   Version 9
+   style.css
+   PART 1
+=================================================== */
+
+/* ===========================
+   RESET
 =========================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#ffffff;
-}
-
-.logo-slider-section{
-padding:60px 0;
-background:transparent;
-overflow:hidden;
-}
-
-.container{
-width:97%;
-max-width:1600px;
-margin:auto;
-}
-
-.section-heading{
-text-align:center;
-margin-bottom:40px;
-}
-
-.section-heading h2{
-font-size:38px;
-font-weight:700;
-color:#6C1B24;
-margin-bottom:15px;
-line-height:1.2;
-}
-
-.section-heading p{
-font-size:18px;
-color:#666;
-line-height:30px;
-max-width:900px;
-margin:auto;
+    width:100%;
+    overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:transparent;
 }
 
 /* ===========================
-   Logo Slider
+   SECTION
+=========================== */
+
+.logo-slider-section{
+
+    width:100%;
+
+    padding:30px 0;
+
+    background:transparent;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0 auto;
+
+    padding:0;
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+   SLIDER WRAPPER
 =========================== */
 
 .logo-slider{
 
-width:100%;
+    width:100%;
 
-overflow:hidden;
+    overflow:hidden;
 
-position:relative;
+    position:relative;
 
-}
-
-.logo-track{
-
-display:flex;
-
-align-items:center;
-
-flex-wrap:nowrap;
-
-justify-content:flex-start;
-
-gap:8px;
-
-animation:scroll 80s linear infinite;
-
-will-change:transform;
-
-}
-
-.logo-slider:hover .logo-track{
-
-animation-play-state:paused;
+    background:transparent;
 
 }
 
 /* ===========================
-   Logo Card
+   TRACK
+=========================== */
+
+.logo-track{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:nowrap;
+
+    width:max-content;
+
+    gap:12px;
+
+    animation:logoScroll 55s linear infinite;
+
+    will-change:transform;
+
+}
+
+/* Pause */
+
+.logo-slider:hover .logo-track{
+
+    animation-play-state:paused;
+
+}
+
+/* ===========================
+   CARD
 =========================== */
 
 .logo-item{
 
-flex:0 0 160px;
+    flex:0 0 auto;
 
-width:160px;
+    width:170px;
 
-min-width:160px;
+    height:120px;
 
-height:145px;
+    display:flex;
 
-display:flex;
+    align-items:center;
 
-align-items:center;
+    justify-content:center;
 
-justify-content:center;
+    background:#ffffff;
 
-background:#ffffff;
+    border:1px solid #e6e6e6;
 
-border:1px solid #e8e8e8;
+    border-radius:14px;
 
-border-radius:14px;
+    padding:10px;
 
-padding:3px;
+    overflow:hidden;
 
-overflow:hidden;
+    transition:.30s ease;
 
-box-shadow:
-0 3px 10px rgba(0,0,0,.06);
-
-transition:
-transform .35s ease,
-box-shadow .35s ease;
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.05);
 
 }
 
 .logo-item:hover{
 
-transform:translateY(-5px);
+    transform:translateY(-4px);
 
-box-shadow:
-0 10px 22px rgba(0,0,0,.10);
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.10);
 
 }
+
+/* ===========================
+   IMAGE
+=========================== */
 
 .logo-item img{
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-display:block;
+    display:block;
 
-object-fit:contain;
+    object-fit:contain;
 
-}/* ===========================
-   Animation
-=========================== */
-
-@keyframes scroll{
-
-0%{
-transform:translate3d(0,0,0);
-}
-
-100%{
-transform:translate3d(-50%,0,0);
-}
+    object-position:center;
 
 }
 
 /* ===========================
-   Tablet
-=========================== */
-
-@media(max-width:991px){
-
-.logo-slider-section{
-padding:50px 0;
-}
-
-.section-heading h2{
-font-size:30px;
-}
-
-.section-heading p{
-font-size:16px;
-line-height:26px;
-}
-
-.logo-track{
-
-gap:6px;
-
-animation-duration:70s;
-
-}
-
-.logo-item{
-
-flex:0 0 150px;
-
-width:150px;
-
-min-width:150px;
-
-height:120px;
-
-padding:3px;
-
-}
-
-}
-
-/* ===========================
-   Mobile
-=========================== */
-
-@media(max-width:767px){
-
-.logo-slider-section{
-padding:40px 0;
-}
-
-.container{
-width:96%;
-}
-
-.section-heading{
-margin-bottom:25px;
-}
-
-.section-heading h2{
-font-size:24px;
-}
-
-.section-heading p{
-font-size:15px;
-line-height:24px;
-}
-
-.logo-track{
-
-gap:5px;
-
-animation-duration:60s;
-
-}
-
-.logo-item{
-
-flex:0 0 130px;
-
-width:130px;
-
-min-width:130px;
-
-height:95px;
-
-padding:3px;
-
-border-radius:12px;
-
-}
-
-}
-
-/* ===========================
-   Smooth Rendering
+   SMOOTH RENDER
 =========================== */
 
 .logo-track,
 .logo-item,
 .logo-item img{
 
--webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
 
-backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
 
-transform-style:preserve-3d;
+    transform:translateZ(0);
+
+}
+
+/* ======= END OF PART 1 ======= */
+
+/* ===================================================
+   AL FAARED TRAVEL
+   Premium Logo Slider
+   Version 9
+   style.css
+   PART 2
+   (Paste BELOW Part 1)
+=================================================== */
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes logoScroll{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
 
 }
 
 /* ===========================
-   Performance
+   TABLET
 =========================== */
 
-.logo-slider{
+@media (max-width:991px){
 
-contain:layout paint;
+.logo-slider-section{
+
+    padding:25px 0;
 
 }
+
+.logo-track{
+
+    gap:10px;
+
+    animation-duration:50s;
+
+}
+
+.logo-item{
+
+    width:150px;
+
+    height:110px;
+
+    padding:8px;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:767px){
+
+.logo-slider-section{
+
+    padding:20px 0;
+
+}
+
+.container{
+
+    width:100%;
+
+}
+
+.logo-track{
+
+    gap:8px;
+
+    animation-duration:42s;
+
+}
+
+.logo-item{
+
+    width:130px;
+
+    height:90px;
+
+    padding:8px;
+
+    border-radius:10px;
+
+}
+
+}
+
+/* ===========================
+   SMALL MOBILE
+=========================== */
+
+@media (max-width:480px){
+
+.logo-track{
+
+    gap:6px;
+
+    animation-duration:36s;
+
+}
+
+.logo-item{
+
+    width:115px;
+
+    height:82px;
+
+    padding:6px;
+
+}
+
+}
+
+/* ===========================
+   PERFORMANCE
+=========================== */
+
+.logo-slider,
+.logo-track{
+
+    contain:none;
+
+}
+
+.logo-slider *{
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+}
+
+/* ===========================
+   ACCESSIBILITY
+=========================== */
+
+@media (prefers-reduced-motion:reduce){
+
+.logo-track{
+
+    animation:none;
+
+}
+
+}
+
+/* ======= END OF VERSION 9 ======= */
