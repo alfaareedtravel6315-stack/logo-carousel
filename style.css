@@ -1,8 +1,7 @@
 /* ===================================================
    AL FAARED TRAVEL
    Premium Logo Slider
-   Version 9
-   style.css
+   Version 10
    PART 1
 =================================================== */
 
@@ -16,16 +15,32 @@
     box-sizing:border-box;
 }
 
-html{
+html,
+body{
     width:100%;
     overflow-x:hidden;
 }
 
 body{
-    width:100%;
-    overflow-x:hidden;
     font-family:Arial,Helvetica,sans-serif;
     background:transparent;
+}
+
+/* ===========================
+   ROOT VARIABLES
+=========================== */
+
+:root{
+
+    --logo-width:150px;
+    --logo-height:90px;
+
+    --logo-gap:18px;
+
+    --section-padding:28px;
+
+    --animation-speed:55s;
+
 }
 
 /* ===========================
@@ -36,13 +51,11 @@ body{
 
     width:100%;
 
-    padding:30px 0;
-
-    background:transparent;
+    padding:var(--section-padding) 0;
 
     overflow:hidden;
 
-    position:relative;
+    background:transparent;
 
 }
 
@@ -52,20 +65,16 @@ body{
 
 .container{
 
-    width:100%;
+    width:min(100%, 1800px);
 
-    max-width:none;
-
-    margin:0 auto;
-
-    padding:0;
+    margin:auto;
 
     overflow:hidden;
 
 }
 
 /* ===========================
-   SLIDER WRAPPER
+   SLIDER
 =========================== */
 
 .logo-slider{
@@ -92,63 +101,47 @@ body{
 
     flex-wrap:nowrap;
 
+    gap:var(--logo-gap);
+
     width:max-content;
 
-    gap:12px;
-
-    animation:logoScroll 55s linear infinite;
+    animation:logoScroll var(--animation-speed) linear infinite;
 
     will-change:transform;
 
 }
 
-/* Pause */
-
-.logo-slider:hover .logo-track{
-
-    animation-play-state:paused;
-
-}
-
 /* ===========================
-   CARD
+   LOGO HOLDER
 =========================== */
 
 .logo-item{
 
     flex:0 0 auto;
 
-    width:135px;
-
-    height:100px;
-
     display:flex;
-
-    align-items:center;
 
     justify-content:center;
 
-    background:transparent;
+    align-items:center;
 
-    border:1px solid #e6e6e6;
+    width:var(--logo-width);
 
-    border-radius:14px;
+    height:var(--logo-height);
 
     padding:0;
 
-    overflow:hidden;
+    margin:0;
 
-    transition:.30s ease;
+    background:transparent;
 
-    box-shadow:none;
+    border:none;
 
-}
-
-.logo-item:hover{
-
-    transform:translateY(-4px);
+    border-radius:0;
 
     box-shadow:none;
+
+    overflow:visible;
 
 }
 
@@ -158,15 +151,23 @@ body{
 
 .logo-item img{
 
-    width:100%;
-
-    height:100%;
-
     display:block;
+
+    max-width:100%;
+
+    max-height:100%;
+
+    width:auto;
+
+    height:auto;
 
     object-fit:contain;
 
     object-position:center;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
 
 }
 
@@ -186,16 +187,30 @@ body{
 
 }
 
-/* ======= END OF PART 1 ======= */
-
 /* ===================================================
    AL FAARED TRAVEL
    Premium Logo Slider
-   Version 9
-   style.css
+   Version 10
    PART 2
-   (Paste BELOW Part 1)
 =================================================== */
+
+/* ===========================
+   HOVER
+=========================== */
+
+.logo-slider:hover .logo-track{
+
+    animation-play-state:paused;
+
+}
+
+.logo-item:hover{
+
+    transform:translateY(-3px);
+
+    transition:transform .25s ease;
+
+}
 
 /* ===========================
    ANIMATION
@@ -203,13 +218,53 @@ body{
 
 @keyframes logoScroll{
 
-    0%{
+    from{
+
         transform:translateX(0);
+
     }
 
-    100%{
+    to{
+
         transform:translateX(-50%);
+
     }
+
+}
+
+/* ===========================
+   LARGE DESKTOP
+=========================== */
+
+@media (min-width:1400px){
+
+:root{
+
+    --logo-width:170px;
+
+    --logo-height:100px;
+
+    --logo-gap:22px;
+
+}
+
+}
+
+/* ===========================
+   DESKTOP
+=========================== */
+
+@media (max-width:1399px){
+
+:root{
+
+    --logo-width:150px;
+
+    --logo-height:90px;
+
+    --logo-gap:18px;
+
+}
 
 }
 
@@ -219,27 +274,21 @@ body{
 
 @media (max-width:991px){
 
+:root{
+
+    --logo-width:130px;
+
+    --logo-height:82px;
+
+    --logo-gap:16px;
+
+    --animation-speed:48s;
+
+}
+
 .logo-slider-section{
 
-    padding:25px 0;
-
-}
-
-.logo-track{
-
-    gap:10px;
-
-    animation-duration:50s;
-
-}
-
-.logo-item{
-
-    width:150px;
-
-    height:110px;
-
-    padding:8px;
+    padding:24px 0;
 
 }
 
@@ -251,39 +300,32 @@ body{
 
 @media (max-width:767px){
 
+:root{
+
+    --logo-width:110px;
+
+    --logo-height:70px;
+
+    --logo-gap:14px;
+
+    --animation-speed:42s;
+
+}
+
 .logo-slider-section{
 
     padding:20px 0;
 
 }
 
-.container{
-
-    width:100%;
-
 }
 
-.logo-track{
-
-    gap:8px;
-
-    animation-duration:42s;
-
-}
-
-.logo-item{
-
-    width:130px;
-
-    height:90px;
-
-    padding:8px;
-
-    border-radius:10px;
-
-}
-
-}
+/* ===================================================
+   AL FAARED TRAVEL
+   Premium Logo Slider
+   Version 10
+   PART 3
+=================================================== */
 
 /* ===========================
    SMALL MOBILE
@@ -291,21 +333,21 @@ body{
 
 @media (max-width:480px){
 
-.logo-track{
+:root{
 
-    gap:6px;
+    --logo-width:95px;
 
-    animation-duration:36s;
+    --logo-height:60px;
+
+    --logo-gap:12px;
+
+    --animation-speed:36s;
 
 }
 
-.logo-item{
+.logo-slider-section{
 
-    width:115px;
-
-    height:82px;
-
-    padding:6px;
+    padding:16px 0;
 
 }
 
@@ -315,18 +357,33 @@ body{
    PERFORMANCE
 =========================== */
 
-.logo-slider,
+.logo-slider{
+
+    contain:layout paint;
+
+}
+
 .logo-track{
 
     contain:none;
 
 }
 
-.logo-slider *{
+.logo-track,
+.logo-item,
+.logo-item img{
 
-    -webkit-font-smoothing:antialiased;
+    backface-visibility:hidden;
 
-    -moz-osx-font-smoothing:grayscale;
+    -webkit-backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+.logo-item img{
+
+    image-rendering:auto;
 
 }
 
@@ -340,8 +397,22 @@ body{
 
     animation:none;
 
-}
+    transform:none;
 
 }
 
-/* ======= END OF VERSION 9 ======= */
+}
+
+/* ===========================
+   FUTURE SAFE
+=========================== */
+
+.logo-track > .logo-item{
+
+    flex-shrink:0;
+
+}
+
+/* ===========================
+   END
+=========================== */
