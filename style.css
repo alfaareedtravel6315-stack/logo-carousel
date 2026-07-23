@@ -125,9 +125,9 @@ body{
 
     align-items:center;
 
-    width:var(--logo-width);
+    width:auto;
 
-    height:var(--logo-height);
+    height:auto;
 
     padding:0;
 
