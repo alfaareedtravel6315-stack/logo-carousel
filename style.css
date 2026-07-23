@@ -135,15 +135,26 @@ body{
 
     background:transparent;
 
-    border:none;
+   .logo-item{
 
-    border-radius:0;
+    flex:0 0 auto;
 
-    box-shadow:none;
+    display:flex;
 
-    overflow:visible;
+    justify-content:center;
 
-}
+    align-items:center;
+
+    width:var(--logo-width);
+
+    height:var(--logo-height);
+
+    padding:0;
+
+    margin:0;
+
+    background:transparent;
+
 
 /* ===========================
    IMAGE
