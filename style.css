@@ -35,7 +35,7 @@ body{
     --logo-width:110px;
     --logo-height:90px;
 
-    --logo-gap:18px;
+    --logo-gap:50px;
 
     --section-padding:28px;
 
@@ -101,7 +101,7 @@ body{
 
     flex-wrap:nowrap;
 
-    gap:8px;
+    gap:var(--logo-gap);
 
     width:max-content;
 
