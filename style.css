@@ -354,7 +354,7 @@ body{
 
 .logo-slider{
 
-    contain:layout paint;
+    contain:none;
 
 }
 
