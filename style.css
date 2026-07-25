@@ -372,7 +372,7 @@ body{
 
     -webkit-backface-visibility:hidden;
 
-    transform:translateZ(0);
+    /* transform:translateZ(0); */
 
 }
 
