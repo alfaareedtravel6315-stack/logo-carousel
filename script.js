@@ -1,39 +1,52 @@
-// ================================
-// AL FAARED TRAVEL
-// Premium Logo Slider
-// Version 4
-// ================================
+/*
+==========================================================
+AL FAARED TRAVEL
+Professional Logo Slider
+Platform : Netlify + Google Sites
+File : script.js
+==========================================================
+*/
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const track = document.querySelector(".logo-track");
+    const slider = document.querySelector(".logo-track");
 
-    if (!track) return;
+    if (!slider) return;
 
-    // Pause on hover
-    track.addEventListener("mouseenter", function () {
-        track.style.animationPlayState = "paused";
-    });
+    /* ---------------------------------------
+       Pause animation when page is hidden
+    --------------------------------------- */
 
-    track.addEventListener("mouseleave", function () {
-        track.style.animationPlayState = "running";
-    });
-
-    // Pause when browser tab is inactive
-    document.addEventListener("visibilitychange", function () {
+    document.addEventListener("visibilitychange", () => {
 
         if (document.hidden) {
-            track.style.animationPlayState = "paused";
+            slider.style.animationPlayState = "paused";
         } else {
-            track.style.animationPlayState = "running";
+            slider.style.animationPlayState = "running";
         }
 
     });
 
-    console.log("==================================");
-    console.log("AL FAARED TRAVEL");
-    console.log("Premium Logo Slider Loaded");
-    console.log("Version 4");
-    console.log("==================================");
+    /* ---------------------------------------
+       Restart animation after browser resize
+    --------------------------------------- */
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        slider.style.animation = "none";
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            slider.offsetHeight;
+
+            slider.style.animation = "";
+
+        }, 150);
+
+    });
 
 });
