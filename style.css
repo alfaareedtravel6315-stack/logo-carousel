@@ -1,29 +1,32 @@
-/* ===================================================
+/* ==========================================================
    AL FAARED TRAVEL
-   Premium Logo Slider
-   Version 10
-   PART 1
-=================================================== */
+   Professional Logo Slider
+   Platform : Netlify + Google Sites
+   File : style.css
+========================================================== */
 
 /* ===========================
-   RESET
+   CSS RESET
 =========================== */
 
-*{
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    overflow-x:hidden;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
     background:transparent;
+    overflow-x:hidden;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 /* ===========================
@@ -32,26 +35,35 @@ body{
 
 :root{
 
-    --logo-width:110px;
-    --logo-height:90px;
+    --slider-max-width:1400px;
 
-    --logo-gap:50px;
+    --logo-box-width:180px;
+    --logo-box-height:110px;
 
-    --section-padding:28px;
+    --logo-image-width:150px;
+    --logo-image-height:75px;
 
-    --animation-speed:55s;
+    --logo-gap:28px;
+
+    --slider-padding-top:15px;
+    --slider-padding-bottom:15px;
+
+    --border-radius:14px;
+
+    --transition-speed:.35s;
 
 }
 
 /* ===========================
-   SECTION
+   MAIN SECTION
 =========================== */
 
 .logo-slider-section{
 
     width:100%;
 
-    padding:var(--section-padding) 0;
+    padding:var(--slider-padding-top) 0
+            var(--slider-padding-bottom);
 
     overflow:hidden;
 
@@ -60,37 +72,24 @@ body{
 }
 
 /* ===========================
-   CONTAINER
+   OUTER CONTAINER
 =========================== */
 
-.container{
+.logo-slider-container{
 
-    width:min(100%, 1800px);
+    width:100%;
+    max-width:var(--slider-max-width);
 
     margin:auto;
 
     overflow:hidden;
 
-}
-
-/* ===========================
-   SLIDER
-=========================== */
-
-.logo-slider{
-
-    width:100%;
-
-    overflow:hidden;
-
     position:relative;
 
-    background:transparent;
-
 }
 
 /* ===========================
-   TRACK
+   LOGO TRACK
 =========================== */
 
 .logo-track{
@@ -99,25 +98,23 @@ body{
 
     align-items:center;
 
-    flex-wrap:nowrap;
-
     gap:var(--logo-gap);
 
     width:max-content;
-
-    animation:logoScroll var(--animation-speed) linear infinite;
 
     will-change:transform;
 
 }
 
 /* ===========================
-   LOGO HOLDER
+   SINGLE LOGO BOX
 =========================== */
 
 .logo-item{
 
-    flex:0 0 auto;
+    width:var(--logo-box-width);
+
+    height:var(--logo-box-height);
 
     display:flex;
 
@@ -125,289 +122,384 @@ body{
 
     align-items:center;
 
-    width:auto;
+    flex:0 0 auto;
 
-    height:auto;
+    border-radius:var(--border-radius);
 
-    padding:0;
-
-    margin:0;
-
-    background:transparent;
-
-    border:none;
-
-    border-radius:0;
-
-    box-shadow:none;
-
-    overflow:visible;
+    transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed);
 
 }
 
 /* ===========================
-   IMAGE
+   LOGO IMAGE
 =========================== */
 
 .logo-item img{
 
-    display:block;
+    width:100%;
 
-    width:110px;
+    max-width:var(--logo-image-width);
 
-    height:110px;
+    max-height:var(--logo-image-height);
 
     object-fit:contain;
 
-    object-position:center;
+    display:block;
 
     user-select:none;
 
     -webkit-user-drag:none;
 
-}
-/* ===========================
-   SMOOTH RENDER
-=========================== */
-
-.logo-track,
-.logo-item,
-.logo-item img{
-
-    backface-visibility:hidden;
-
-    -webkit-backface-visibility:hidden;
-
-    /* transform:translateZ(0); */
+    pointer-events:none;
 
 }
-
-/* ===================================================
-   AL FAARED TRAVEL
-   Premium Logo Slider
-   Version 10
-   PART 2
-=================================================== */
 
 /* ===========================
    HOVER
 =========================== */
 
-.logo-slider:hover .logo-track{
+.logo-item:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================================
+   PROFESSIONAL ANIMATION
+========================================================== */
+
+.logo-track{
+
+    animation:logoScroll 32s linear infinite;
+
+}
+
+.logo-slider-container:hover .logo-track{
 
     animation-play-state:paused;
 
 }
 
-.logo-item:hover{
-
-    transform:translateY(-3px);
-
-    transition:transform .25s ease;
-
-}
-
-/* ===========================
-   ANIMATION
-=========================== */
+/* ==========================================================
+   SMOOTH INFINITE SCROLL
+========================================================== */
 
 @keyframes logoScroll{
 
-    from{
-
+    0%{
         transform:translateX(0);
-
     }
 
-    to{
-
+    100%{
         transform:translateX(-50%);
-
     }
 
 }
 
-/* ===========================
-   LARGE DESKTOP
-=========================== */
+/* ==========================================================
+   EDGE FADE EFFECT
+========================================================== */
 
-@media (min-width:1400px){
+.logo-slider-container::before,
+.logo-slider-container::after{
 
-:root{
+    content:"";
 
-    --logo-width:170px;
+    position:absolute;
 
-    --logo-height:100px;
+    top:0;
 
-    --logo-gap:22px;
+    width:80px;
 
-}
+    height:100%;
 
-}
+    z-index:5;
 
-/* ===========================
-   DESKTOP
-=========================== */
-
-@media (max-width:1399px){
-
-:root{
-
-    --logo-width:150px;
-
-    --logo-height:90px;
-
-    --logo-gap:18px;
+    pointer-events:none;
 
 }
 
-}
+.logo-slider-container::before{
 
-/* ===========================
-   TABLET
-=========================== */
+    left:0;
 
-@media (max-width:991px){
-
-:root{
-
-    --logo-width:130px;
-
-    --logo-height:82px;
-
-    --logo-gap:16px;
-
-    --animation-speed:48s;
+    background:
+    linear-gradient(
+        to right,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0)
+    );
 
 }
 
-.logo-slider-section{
+.logo-slider-container::after{
 
-    padding:24px 0;
+    right:0;
 
-}
-
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width:767px){
-
-:root{
-
-    --logo-width:110px;
-
-    --logo-height:70px;
-
-    --logo-gap:14px;
-
-    --animation-speed:42s;
+    background:
+    linear-gradient(
+        to left,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0)
+    );
 
 }
 
-.logo-slider-section{
+/* ==========================================================
+   PROFESSIONAL HOVER
+========================================================== */
 
-    padding:20px 0;
+.logo-item:hover{
 
-}
+    transform:scale(1.08);
 
-}
-
-/* ===================================================
-   AL FAARED TRAVEL
-   Premium Logo Slider
-   Version 10
-   PART 3
-=================================================== */
-
-/* ===========================
-   SMALL MOBILE
-=========================== */
-
-@media (max-width:480px){
-
-:root{
-
-    --logo-width:95px;
-
-    --logo-height:60px;
-
-    --logo-gap:12px;
-
-    --animation-speed:36s;
+    box-shadow:
+    0 12px 28px rgba(0,0,0,.12);
 
 }
 
-.logo-slider-section{
-
-    padding:16px 0;
-
-}
-
-}
-
-/* ===========================
-   PERFORMANCE
-=========================== */
-
-.logo-slider{
-
-    contain:none;
-
-}
-
-.logo-track{
-
-    contain:none;
-
-}
-
-.logo-track,
-.logo-item,
-.logo-item img{
-
-    backface-visibility:hidden;
-
-    -webkit-backface-visibility:hidden;
-
-    /* transform:translateZ(0); */
-
-}
+/* ==========================================================
+   IMAGE QUALITY
+========================================================== */
 
 .logo-item img{
 
     image-rendering:auto;
 
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+    transition:
+    transform .35s ease;
+
 }
 
-/* ===========================
+.logo-item:hover img{
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================================================
+   PERFORMANCE
+========================================================== */
+
+.logo-track,
+.logo-item,
+.logo-item img{
+
+    will-change:transform;
+
+}
+
+/* ==========================================================
+   GOOGLE SITES OPTIMIZATION
+========================================================== */
+
+.logo-slider-section{
+
+    isolation:isolate;
+
+}
+
+.logo-slider-container{
+
+    contain:layout paint;
+
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+/* ---------- Large Desktop ---------- */
+
+@media (min-width:1400px){
+
+    :root{
+
+        --logo-box-width:190px;
+        --logo-box-height:115px;
+
+        --logo-image-width:155px;
+        --logo-image-height:80px;
+
+        --logo-gap:32px;
+
+    }
+
+}
+
+/* ---------- Laptop ---------- */
+
+@media (max-width:1200px){
+
+    :root{
+
+        --logo-box-width:170px;
+        --logo-box-height:105px;
+
+        --logo-image-width:145px;
+        --logo-image-height:72px;
+
+        --logo-gap:24px;
+
+    }
+
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:992px){
+
+    :root{
+
+        --logo-box-width:150px;
+        --logo-box-height:95px;
+
+        --logo-image-width:125px;
+        --logo-image-height:65px;
+
+        --logo-gap:20px;
+
+    }
+
+    .logo-track{
+
+        animation-duration:28s;
+
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+    :root{
+
+        --logo-box-width:130px;
+        --logo-box-height:85px;
+
+        --logo-image-width:110px;
+        --logo-image-height:58px;
+
+        --logo-gap:16px;
+
+    }
+
+    .logo-track{
+
+        animation-duration:22s;
+
+    }
+
+    .logo-slider-container::before,
+    .logo-slider-container::after{
+
+        width:36px;
+
+    }
+
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width:480px){
+
+    :root{
+
+    --logo-box-width:110px;
+    --logo-box-height:75px;
+
+    --logo-image-width:95px;
+    --logo-image-height:52px;
+
+    --logo-gap:12px;
+
+}
+
+    .logo-track{
+ 
+        animation-duration:18s;
+
+    }
+
+    .logo-item:hover{
+
+        transform:none;
+        box-shadow:none;
+
+    }
+
+}
+
+/* ==========================================================
+   IMAGE PROTECTION
+========================================================== */
+
+.logo-item img{
+
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+
+    -webkit-touch-callout:none;
+
+    pointer-events:none;
+
+}
+
+/* ==========================================================
    ACCESSIBILITY
-=========================== */
+========================================================== */
 
 @media (prefers-reduced-motion:reduce){
 
+    .logo-track{
+
+        animation:none;
+
+    }
+
+}
+
+/* ==========================================================
+   FINAL STABILITY
+========================================================== */
+
+.logo-slider-section,
+.logo-slider-container,
+.logo-track,
+.logo-item{
+
+    box-sizing:border-box;
+
+}
+
 .logo-track{
 
-    animation:none;
-
-    transform:none;
+    white-space:nowrap;
 
 }
 
-}
+.logo-item{
 
-/* ===========================
-   FUTURE SAFE
-=========================== */
-
-.logo-track > .logo-item{
-
-    flex-shrink:0;
+    overflow:hidden;
 
 }
 
-/* ===========================
-   END
-=========================== */
+.logo-item img{
+
+    vertical-align:middle;
+
+    height:auto;
+
+}
+
+/* ==========================================================
+   END OF FILE
+========================================================== */
