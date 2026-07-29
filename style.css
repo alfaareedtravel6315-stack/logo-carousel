@@ -120,9 +120,7 @@ body{
 
 .logo-item{
 
-    width:auto;
-
-    min-width:var(--logo-box-width);
+   width:var(--logo-box-width);
 
     height:var(--logo-box-height);
 
