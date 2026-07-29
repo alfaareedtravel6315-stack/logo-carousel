@@ -5,9 +5,9 @@
    File : style.css
 ========================================================== */
 
-/* ===========================
+/* ==========================================================
    CSS RESET
-=========================== */
+========================================================== */
 
 *,
 *::before,
@@ -29,9 +29,9 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 }
 
-/* ===========================
+/* ==========================================================
    ROOT VARIABLES
-=========================== */
+========================================================== */
 
 :root{
 
@@ -54,30 +54,35 @@ body{
 
 }
 
-/* ===========================
+/* ==========================================================
    MAIN SECTION
-=========================== */
+========================================================== */
 
 .logo-slider-section{
 
     width:100%;
 
-    padding:var(--slider-padding-top) 0
-            var(--slider-padding-bottom);
+    padding:
+        var(--slider-padding-top)
+        0
+        var(--slider-padding-bottom);
 
     overflow:hidden;
 
     background:transparent;
 
+    isolation:isolate;
+
 }
 
-/* ===========================
+/* ==========================================================
    OUTER CONTAINER
-=========================== */
+========================================================== */
 
 .logo-slider-container{
 
     width:100%;
+
     max-width:var(--slider-max-width);
 
     margin:auto;
@@ -86,121 +91,7 @@ body{
 
     position:relative;
 
-}
-
-/* ===========================
-   LOGO TRACK
-=========================== */
-
-.logo-track{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:var(--logo-gap);
-
-    width:max-content;
-
-    will-change:transform;
-
-    animation:logoScroll 32s linear infinite;
-
-    animation-play-state:running;
-
-    transform:translate3d(0,0,0);
-
-    backface-visibility:hidden;
-
-}
-
-/* ===========================
-   SINGLE LOGO BOX
-=========================== */
-
-.logo-item{
-
-   width:var(--logo-box-width);
-
-    height:var(--logo-box-height);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex:0 0 auto;
-
-    border-radius:var(--border-radius);
-
-    transition:
-    transform var(--transition-speed),
-    box-shadow var(--transition-speed);
-
-}
-
-/* ===========================
-   LOGO IMAGE
-=========================== */
-
-.logo-item img{
-
-    width:var(--logo-image-width);
-
-    max-height:var(--logo-image-height);
-
-    object-fit:contain;
-
-    display:block;
-
-    user-select:none;
-
-    -webkit-user-drag:none;
-
-    pointer-events:none;
-
-}
-
-/* ===========================
-   HOVER
-=========================== */
-
-.logo-item:hover{
-
-    transform:scale(1.05);
-
-}
-
-/* ==========================================================
-   PROFESSIONAL ANIMATION
-========================================================== */
-
-.logo-track{
-
-    animation:logoScroll 32s linear infinite;
-
-}
-
-.logo-slider-container:hover .logo-track{
-
-    animation-play-state:paused;
-
-}
-
-/* ==========================================================
-   SMOOTH INFINITE SCROLL
-========================================================== */
-
-@keyframes logoScroll{
-
-    0%{
-        transform:translateX(0);
-    }
-
-    100%{
-        transform:translateX(-50%);
-    }
+    contain:layout paint;
 
 }
 
@@ -232,11 +123,11 @@ body{
     left:0;
 
     background:
-    linear-gradient(
-        to right,
-        rgba(255,255,255,1),
-        rgba(255,255,255,0)
-    );
+        linear-gradient(
+            to right,
+            rgba(255,255,255,1),
+            rgba(255,255,255,0)
+        );
 
 }
 
@@ -245,16 +136,125 @@ body{
     right:0;
 
     background:
-    linear-gradient(
-        to left,
-        rgba(255,255,255,1),
-        rgba(255,255,255,0)
-    );
+        linear-gradient(
+            to left,
+            rgba(255,255,255,1),
+            rgba(255,255,255,0)
+        );
 
 }
 
 /* ==========================================================
-   PROFESSIONAL HOVER
+   LOGO TRACK
+========================================================== */
+
+.logo-track{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:var(--logo-gap);
+
+    width:max-content;
+
+    animation:logoScroll 32s linear infinite;
+
+    animation-play-state:running;
+
+    transform:translate3d(0,0,0);
+
+    backface-visibility:hidden;
+
+    will-change:transform;
+
+    white-space:nowrap;
+
+    box-sizing:border-box;
+
+}
+
+/* Pause On Hover */
+
+.logo-slider-container:hover .logo-track{
+
+    animation-play-state:paused;
+
+}
+
+/* ==========================================================
+   SINGLE LOGO BOX
+========================================================== */
+
+.logo-item{
+
+    width:var(--logo-box-width);
+
+    height:var(--logo-box-height);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex:0 0 auto;
+
+    border-radius:var(--border-radius);
+
+    transition:
+        transform var(--transition-speed),
+        box-shadow var(--transition-speed);
+
+    overflow:visible;
+
+    box-sizing:border-box;
+
+    will-change:transform;
+
+}
+
+/* ==========================================================
+   LOGO IMAGE
+========================================================== */
+
+.logo-item img{
+
+    width:var(--logo-image-width);
+
+    max-height:var(--logo-image-height);
+
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+
+    vertical-align:middle;
+
+    image-rendering:auto;
+
+    transform:translateZ(0);
+
+    backface-visibility:hidden;
+
+    transition:transform .35s ease;
+
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+
+    -webkit-user-drag:none;
+    -webkit-touch-callout:none;
+
+    pointer-events:none;
+
+    will-change:transform;
+
+}
+
+/* ==========================================================
+   HOVER EFFECT
 ========================================================== */
 
 .logo-item:hover{
@@ -262,30 +262,33 @@ body{
     transform:scale(1.08);
 
     box-shadow:
-    0 12px 28px rgba(0,0,0,.12);
-
-}
-
-/* ==========================================================
-   IMAGE QUALITY
-========================================================== */
-
-.logo-item img{
-
-    image-rendering:auto;
-
-    backface-visibility:hidden;
-
-    transform:translateZ(0);
-
-    transition:
-    transform .35s ease;
+        0 12px 28px rgba(0,0,0,.12);
 
 }
 
 .logo-item:hover img{
 
     transform:scale(1.03);
+
+}
+
+/* ==========================================================
+   PROFESSIONAL ANIMATION
+========================================================== */
+
+@keyframes logoScroll{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%);
+
+    }
 
 }
 
@@ -302,18 +305,16 @@ body{
 }
 
 /* ==========================================================
-   GOOGLE SITES OPTIMIZATION
+   ACCESSIBILITY
 ========================================================== */
 
-.logo-slider-section{
+@media (prefers-reduced-motion:reduce){
 
-    isolation:isolate;
+    .logo-track{
 
-}
+        animation:none;
 
-.logo-slider-container{
-
-    contain:layout paint;
+    }
 
 }
 
@@ -418,18 +419,18 @@ body{
 
     :root{
 
-    --logo-box-width:110px;
-    --logo-box-height:75px;
+        --logo-box-width:110px;
+        --logo-box-height:75px;
 
-    --logo-image-width:95px;
-    --logo-image-height:52px;
+        --logo-image-width:95px;
+        --logo-image-height:52px;
 
-    --logo-gap:12px;
+        --logo-gap:12px;
 
-}
+    }
 
     .logo-track{
- 
+
         animation-duration:18s;
 
     }
@@ -437,37 +438,8 @@ body{
     .logo-item:hover{
 
         transform:none;
+
         box-shadow:none;
-
-    }
-
-}
-
-/* ==========================================================
-   IMAGE PROTECTION
-========================================================== */
-
-.logo-item img{
-
-    user-select:none;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-
-    -webkit-touch-callout:none;
-
-    pointer-events:none;
-
-}
-
-/* ==========================================================
-   ACCESSIBILITY
-========================================================== */
-
-@media (prefers-reduced-motion:reduce){
-
-    .logo-track{
-
-        animation:none;
 
     }
 
@@ -483,26 +455,6 @@ body{
 .logo-item{
 
     box-sizing:border-box;
-
-}
-
-.logo-track{
-
-    white-space:nowrap;
-
-}
-
-.logo-item{
-
-    overflow:visible;
-
-}
-
-.logo-item img{
-
-    vertical-align:middle;
-
-    height:auto;
 
 }
 
