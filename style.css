@@ -104,6 +104,14 @@ body{
 
     will-change:transform;
 
+    animation:logoScroll 32s linear infinite;
+
+    animation-play-state:running;
+
+    transform:translate3d(0,0,0);
+
+    backface-visibility:hidden;
+
 }
 
 /* ===========================
