@@ -29,23 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------------------------------------
        Restart animation after browser resize
+       (Temporary Test)
     --------------------------------------- */
-
-    let resizeTimer;
 
     window.addEventListener("resize", () => {
 
-        slider.style.animation = "none";
-
-        clearTimeout(resizeTimer);
-
-        resizeTimer = setTimeout(() => {
-
-            slider.offsetHeight;
-
-            slider.style.animation = "";
-
-        }, 150);
+        // Temporary Test
 
     });
 
