@@ -146,9 +146,7 @@ body{
 
 .logo-item img{
 
-    width:100%;
-
-    max-width:var(--logo-image-width);
+    width:var(--logo-image-width);
 
     max-height:var(--logo-image-height);
 
