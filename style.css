@@ -158,9 +158,12 @@ body{
 
     width:max-content;
 
-    animation:logoScroll 32s linear infinite;
-
-    animation-play-state:running;
+    animation-name: logoScroll;
+animation-duration: 32s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-play-state: running;
+animation-fill-mode: forwards;
 
     transform:translate3d(0,0,0);
 
