@@ -89,6 +89,8 @@ body{
 
     position:relative;
 
+   contain: layout paint;
+
 
 }
 
@@ -159,11 +161,6 @@ body{
 
     box-sizing:border-box;
 
-    transform:translate3d(0,0,0);
-
-    backface-visibility:hidden;
-
-    will-change:transform;
 
     animation:logoScroll 32s linear infinite;
 
