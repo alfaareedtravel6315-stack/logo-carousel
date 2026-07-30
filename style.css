@@ -50,8 +50,6 @@ body{
 
     --border-radius:14px;
 
-    --transition-speed:.35s;
-
 }
 
 /* ==========================================================
@@ -158,12 +156,9 @@ body{
 
     width:max-content;
 
-    animation-name: logoScroll;
-animation-duration: 32s;
-animation-timing-function: linear;
-animation-iteration-count: infinite;
-animation-play-state: running;
-animation-fill-mode: forwards;
+    white-space:nowrap;
+
+    box-sizing:border-box;
 
     transform:translate3d(0,0,0);
 
@@ -171,17 +166,7 @@ animation-fill-mode: forwards;
 
     will-change:transform;
 
-    white-space:nowrap;
-
-    box-sizing:border-box;
-
-}
-
-/* Pause On Hover */
-
-.logo-slider-container:hover .logo-track{
-
-    animation-play-state:paused;
+    animation:logoScroll 32s linear infinite;
 
 }
 
@@ -205,15 +190,9 @@ animation-fill-mode: forwards;
 
     border-radius:var(--border-radius);
 
-    transition:
-        transform var(--transition-speed),
-        box-shadow var(--transition-speed);
-
     overflow:visible;
 
     box-sizing:border-box;
-
-    will-change:transform;
 
 }
 
@@ -241,8 +220,6 @@ animation-fill-mode: forwards;
 
     backface-visibility:hidden;
 
-    transition:transform .35s ease;
-
     user-select:none;
     -webkit-user-select:none;
     -moz-user-select:none;
@@ -257,39 +234,20 @@ animation-fill-mode: forwards;
 }
 
 /* ==========================================================
-   HOVER EFFECT
-========================================================== */
-
-.logo-item:hover{
-
-    transform:scale(1.08);
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.12);
-
-}
-
-.logo-item:hover img{
-
-    transform:scale(1.03);
-
-}
-
-/* ==========================================================
-   PROFESSIONAL ANIMATION
+   CONTINUOUS MARQUEE ANIMATION
 ========================================================== */
 
 @keyframes logoScroll{
 
-    0%{
+    from{
 
-        transform:translateX(0);
+        transform:translate3d(0,0,0);
 
     }
 
-    100%{
+    to{
 
-        transform:translateX(-50%);
+        transform:translate3d(-50%,0,0);
 
     }
 
@@ -379,7 +337,7 @@ animation-fill-mode: forwards;
 
     .logo-track{
 
-        animation-duration:28s;
+        animation:logoScroll 28s linear infinite;
 
     }
 
@@ -403,7 +361,7 @@ animation-fill-mode: forwards;
 
     .logo-track{
 
-        animation-duration:22s;
+        animation:logoScroll 22s linear infinite;
 
     }
 
@@ -434,15 +392,7 @@ animation-fill-mode: forwards;
 
     .logo-track{
 
-        animation-duration:18s;
-
-    }
-
-    .logo-item:hover{
-
-        transform:none;
-
-        box-shadow:none;
+        animation:logoScroll 18s linear infinite;
 
     }
 
